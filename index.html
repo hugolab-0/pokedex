@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Define padrão de caracteres -->
+    <meta charset="UTF-8">
+
+    <!-- Importa o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Importa seu JS -->
+    <script src="app.js" defer></script>
+
+    <!-- Importa fontes pixeladas -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Silkscreen&family=Pixelify+Sans&display=swap" rel="stylesheet">
+
+    <title>Pokedex</title>
+</head>
+
+<!-- Body com:
+     - fonte pixel
+     - fundo com imagem
+     - ocupa tela toda
+     - flex em coluna
+     - centraliza conteúdo -->
+<body class="font-['Press_Start_2P'] text-xs bg-[url('./img/fundo.png')] bg-cover bg-center bg-no-repeat h-screen flex flex-col items-center">
+
+    <!-- HEADER com logo -->
+    <header class="flex justify-center items-center h-20 m-10">
+        <!-- Logo da Pokédex -->
+        <img src="./img/Pokedex_logo.png" class="w-80"> 
+    </header>
+
+    <!-- MAIN onde fica tudo -->
+    <main class="flex flex-col items-center justify-start h-[65%] w-1/2">
+
+        <!-- 🔍 Área de busca -->
+        <div class="flex justify-center items-center h-20 m-10">
+
+            <!-- Input de texto -->
+            <input id="bar-search" type="text"
+                placeholder="Pokemon..."
+                class="
+                border border-gray-300            <!-- borda -->
+                rounded-md                       <!-- cantos arredondados -->
+                py-2 px-4                        <!-- padding -->
+                focus:outline-none               <!-- remove outline padrão -->
+                focus:ring-2 focus:ring-red-500 <!-- efeito ao focar -->
+                shadow-[0_0_20px_rgba(0,0,0,0.5)] <!-- sombra -->
+                transition duration-200          <!-- animação -->
+                ">
+
+            <!-- Botão de busca -->
+            <button id="btn-search"
+                class="
+                bg-blue-500 hover:bg-red-500    <!-- cor + hover -->
+                text-white                      <!-- texto branco -->
+                font-bold                       <!-- negrito -->
+                py-2 px-4                       <!-- padding -->
+                rounded-md                      <!-- borda arredondada -->
+                ml-2                            <!-- espaço à esquerda -->
+                transition duration-300         <!-- animação -->
+                shadow-[0_0_20px_rgba(0,0,0,0.5)] <!-- sombra -->
+                ">
+                Buscar
+            </button>
+        </div>
+
+        <!-- 📦 Resultado (card estilo Pokédex) -->
+        <div id="result"
+        class="
+        w-[320px]                <!-- largura fixa -->
+        bg-[#f6d55c]             <!-- fundo amarelo -->
+        p-2                      <!-- padding -->
+        rounded-xl               <!-- borda arredondada -->
+        border-2 border-yellow-600 <!-- borda -->
+        shadow-2xl               <!-- sombra forte -->
+        hidden                   <!-- começa escondido -->
+        ">
+
+            <!-- 🔝 Topo com nome e ID -->
+            <div class="flex justify-between items-center px-2 py-1">
+                <span id="pokemon-name" class="font-bold text-sm"></span>
+                <span id="pokemon-id" class="font-bold text-sm"></span>
+            </div>
+
+            <!-- 🖼 Área da imagem -->
+            <div class="
+                bg-gray-300           <!-- fundo -->
+                border-4 border-gray-400 <!-- borda estilo tela -->
+                shadow-inner          <!-- sombra interna -->
+            ">
+                <img id="pokemon-img"
+                class="
+                w-full               <!-- ocupa largura total -->
+                h-52                 <!-- altura fixa -->
+                object-contain       <!-- mantém proporção -->
+                ">
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
