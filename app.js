@@ -59,7 +59,7 @@ function corPokemon(cor) {
   }
 
   // Retorna a cor correspondente ou cinza padrão
-  return cores[cor] || "bg-gray-200"
+  return cores[cor] 
 }
 
 
