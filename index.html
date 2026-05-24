@@ -4,100 +4,100 @@
     <!-- Define padrão de caracteres -->
     <meta charset="UTF-8">
 
-    <!-- Importa o Tailwind CSS -->
+    <!-- Importa o Tailwind CSS (estilização) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Responsividade -->
+    <!-- Responsividade para mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Importa seu JS -->
+    <!-- Importa seu JavaScript -->
     <script src="app.js" defer></script>
 
-    <!-- Importa fontes pixeladas -->
+    <!-- Fontes estilo pixel -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Silkscreen&family=Pixelify+Sans&display=swap" rel="stylesheet">
 
     <title>Pokedex</title>
 </head>
 
-<!-- Body com:
-     - fonte pixel
-     - fundo com imagem
-     - ocupa tela toda
-     - flex em coluna
-     - centraliza conteúdo -->
+<!-- 
+BODY:
+- fonte pixel
+- imagem de fundo
+- ocupa tela toda
+- layout em coluna
+- centraliza conteúdo
+-->
 <body class="font-['Press_Start_2P'] text-xs bg-[url('./img/fundo.png')] bg-cover bg-center bg-no-repeat h-screen flex flex-col items-center">
 
-    <!-- HEADER com logo -->
+    <!-- ================= HEADER ================= -->
     <header class="flex justify-center items-center h-20 m-10">
         <!-- Logo da Pokédex -->
         <img src="./img/Pokedex_logo.png" class="w-80"> 
     </header>
 
-    <!-- MAIN onde fica tudo -->
+    <!-- ================= MAIN ================= -->
     <main class="flex flex-col items-center justify-start h-[65%] w-1/2">
 
         <!-- 🔍 Área de busca -->
         <div class="flex justify-center items-center h-20 m-10">
 
-            <!-- Input de texto -->
+            <!-- Input onde o usuário digita o nome -->
             <input id="bar-search" type="text"
                 placeholder="Pokemon..."
                 class="
-                border border-gray-300            
-                rounded-md                       
-                py-2 px-4                       
-                focus:outline-none               
-                focus:ring-2 focus:ring-red-500 
-                shadow-[0_0_20px_rgba(0,0,0,0.5)] 
-                transition duration-200          
+                border border-gray-300            /* borda */
+                rounded-md                       /* cantos arredondados */
+                py-2 px-4                        /* padding interno */
+                focus:outline-none               /* remove borda padrão */
+                focus:ring-2 focus:ring-red-500 /* efeito ao clicar */
+                shadow-[0_0_20px_rgba(0,0,0,0.5)] /* sombra */
+                transition duration-200          /* animação */
                 ">
 
             <!-- Botão de busca -->
             <button id="btn-search"
                 class="
-                bg-blue-500 hover:bg-red-500   
-                text-white                      
-                font-bold                     
-                py-2 px-4                     
-                rounded-md                      
-                ml-2                           
-                transition duration-300         
-                shadow-[0_0_20px_rgba(0,0,0,0.5)] 
+                bg-blue-500 hover:bg-red-500    /* cor + hover */
+                text-white                      /* texto branco */
+                font-bold                       /* negrito */
+                py-2 px-4                       /* padding */
+                rounded-md                      /* borda arredondada */
+                ml-2                            /* espaço lateral */
+                transition duration-300         /* animação */
+                shadow-[0_0_20px_rgba(0,0,0,0.5)] /* sombra */
                 ">
                 Buscar
             </button>
         </div>
 
-        <!-- 📦 Resultado (card estilo Pokédex) -->
+        <!-- ================= RESULTADO ================= -->
+        <!-- Card que mostra o Pokémon -->
         <div id="result"
         class="
-        w-[320px]                
-        bg-[#f6d55c]             
-        p-2                      
-        rounded-xl               
-        border-2 border-yellow-600 
-        shadow-2xl               
-        hidden                   
+        w-[320px]                /* largura fixa */
+        bg-[#f6d55c]             /* cor inicial (será alterada via JS) */
+        p-2                      /* espaçamento interno */
+        rounded-xl               /* borda arredondada */
+        border-8                 /* borda */
+        shadow-2xl               /* sombra forte */
+        hidden                   /* começa escondido */
         ">
 
-            <!-- 🔝 Topo com nome e ID -->
+            <!-- 🔝 Topo: nome + ID -->
             <div class="flex justify-between items-center px-2 py-1">
                 <span id="pokemon-name" class="font-bold text-sm"></span>
                 <span id="pokemon-id" class="font-bold text-sm"></span>
             </div>
 
             <!-- 🖼 Área da imagem -->
-            <div class="
-                bg-gray-300           
-                border-4 border-gray-400 
-                shadow-inner         
-            ">
+            <div class="bg-gray-300 border-4 border-gray-400 shadow-inner">
                 <img id="pokemon-img"
-                class="
-                w-full               
-                h-52                 
-                object-contain       
-                ">
+                class="w-full h-52 object-contain"> <!-- mantém proporção -->
+            </div>
+
+            <!-- 📖 Descrição -->
+            <div id="descricao" class="p-2 text-sm bg-gray-300 border-t-2 border-gray-400 mt-2">
+                <!-- preenchido via JS -->
             </div>
 
         </div>
